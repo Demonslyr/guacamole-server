@@ -21,6 +21,21 @@ spec:
           value: "atriarch-guac-service"
         - name: GUACD_PORT
           value: "4822"
+        - name: POSTGRES_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-psql-config
+              key: db_name
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-psql-config
+              key: db_user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-psql-config
+              key: dp_pass 
       - name: atriarch-guac-container
         image: ${CICD_IMAGE}:v1.0.${CICD_EXECUTION_SEQUENCE}
         env:
