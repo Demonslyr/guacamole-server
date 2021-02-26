@@ -20,7 +20,7 @@ spec:
         - name: GUACD_HOSTNAME
           value: "atriarch-guac-service"
         - name: GUACD_PORT
-          value: 4822
+          value: "4822"
       - name: atriarch-guac-container
         image: ${CICD_IMAGE}:v1.0.${CICD_EXECUTION_SEQUENCE}
         env:
