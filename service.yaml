@@ -14,6 +14,13 @@ spec:
         app: atriarch-guac
     spec:
       containers:
+      - name: atriarch-guac-wfe-container
+        image: guacamole/guacamole
+        env:
+        - name: GUACD_HOSTNAME
+          value: "atriarch-guac-service"
+        - name: GUACD_PORT
+          value: 4822
       - name: atriarch-guac-container
         image: ${CICD_IMAGE}:v1.0.${CICD_EXECUTION_SEQUENCE}
         env:
