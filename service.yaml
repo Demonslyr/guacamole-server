@@ -63,7 +63,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: guacamole-psql-config
-              key: dp_pass 
+              key: db_pass 
       imagePullSecrets:
       - name: atriarch-systems-docker-group
 ---
