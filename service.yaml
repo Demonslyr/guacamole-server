@@ -35,7 +35,17 @@ spec:
           valueFrom:
             secretKeyRef:
               name: guacamole-psql-config
-              key: dp_pass 
+              key: db_pass 
+        - name: POSTGRES_HOSTNAME
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-psql-config
+              key: db_internal_url
+        - name: POSTGRES_PORT
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-psql-config
+              key: db_port
       - name: atriarch-guac-container
         image: ${CICD_IMAGE}:v1.0.${CICD_EXECUTION_SEQUENCE}
         env:
